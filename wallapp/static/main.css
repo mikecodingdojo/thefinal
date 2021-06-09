@@ -1,0 +1,148 @@
+/*CSS reset settings here*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+p,
+blockquote,
+table,
+th,
+td,
+embed,
+object {
+    font-family: 'Abel', sans-serif;
+    
+    padding: 0;
+    margin: 0;
+    border: 0;
+    
+}
+
+
+.container{
+    padding-top: 10px;
+    margin-top: 25px;
+    background-color: rgb(245, 219, 185);
+    padding-bottom: 10px;
+    margin: 0 auto;
+    
+    
+}
+.sp{
+    padding-left: 300px;
+
+}
+.thewall{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-weight: 700;
+    margin-bottom: 10px;
+
+}
+
+.btn-info{
+    font-weight: 800;
+    font-size: 12px;
+    border-radius: 10px;
+    min-width: 150px;
+    
+}
+
+.btn-danger{
+    min-width: 100px;
+
+}
+
+.post{
+    width: 600px;
+    border: 2px solid black; 
+    margin-top: 15px;
+    margin-left: 30px;
+    color: rgb(27, 25, 25);
+    font-size: 15px;
+    font-weight: 700;
+    overflow-y: scroll;
+    background-color: white;
+    padding: 3px;
+}
+.comment_post{
+    padding: 3px;
+    width: 600px;
+    border: 2px solid black; 
+    margin-top: 15px;
+    color: rgb(27, 25, 25);
+    font-size: 15px;
+    font-weight: 700;
+    overflow-y: scroll;
+    background-color: rgb(140, 245, 187);
+}
+
+.borderline{
+    padding: 10px;
+    border: 2px solid black;
+
+}
+
+.loginbutton{
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    height: 30px;
+    border: 2px solid black; 
+    border-radius: 5px;
+    border-bottom: 5px black;
+    border-right: 5px;
+    background-color: lightgrey;
+    
+    
+    
+
+}
+.loginbutton a {
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+
+.logindiv{
+    display: flex;
+    flex-direction: column;
+    
+    width: 300px;
+
+}
+.regindiv{
+    display: flex;
+    flex-wrap: wrap;
+    
+    width: 200px;
+}
+
+.loginwall{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 700;
+    margin-bottom: 10px;
+
+}
+.btn {
+    margin-left: 50px;
+}
+
+

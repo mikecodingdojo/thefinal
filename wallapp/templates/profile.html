@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %} 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'main.css'%}">
+    <title>Profile page</title>
+</head>
+<body>
+    <div class="container sp">
+        
+        
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="/success">Main Feed </a>
+            </li>
+
+            <li>
+                <a class="nav-link active" href="/logout">Logout </a>
+
+            </li>
+                <form action="/search" method="POST">
+                    {% csrf_token %}
+                    <input type="text" class="form-control" placeholder="Search...">
+                
+                </form>
+            
+            
+            </ul>
+
+        <h1>Hello {{user.first_name}} {{user.last_name}}</h1> 
+
+
+        <!--Adding files-->
+            <div class="form-group">
+
+                <form action="/images" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name='myfile'>
+                    <button class="btn btn-secondary">Post</button>
+                </form>
+            </div>
+
+
+        {% for post in user.user_messages.all %}
+        <p class='post'>{{post.message}}</p>
+        {% endfor %}
+    
+        {% for comment in user.user_comments.all %}
+        <p>Comment:</p>
+        <p class='comment_post'>{{comment.comment}}</p>
+        {% endfor %}
+    
+        {% if user.id == request.session.id %}
+        
+
+            
+            {% for uploaded_file_urls in uploaded_file_url %}
+
+            <img src="{{ uploaded_file_urls }}" alt="">
+                
+            {% endfor %}
+                
+        
+
+        Edit User Form:
+        <form action="/edit/{{user.id}}" method=POST>
+            {% csrf_token %}
+            First Name: <input class="form-control-sm type="text" name='first_name' value={{user.first_name}}>
+            Last Name: <input class="form-control-smtype="text" name='last_name' value={{user.last_name}}>
+            Email: <input class="form-control-sm type="text" name='email' value={{user.email}}>
+            <input class="btn btn-primary" type="submit">
+        {%endif%}
+
+
+
+    </div><!--Main Container-->
+    
+</body>
+</html>

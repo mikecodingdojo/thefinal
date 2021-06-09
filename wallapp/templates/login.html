@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %} 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'main.css'%}">
+
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        
+    
+        <h1 class="loginwall">Login</h1>
+        <form class="loginwall" action="/login" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">  
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" id="email" required>
+
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="password" required>
+
+            </div>
+            <div class="bottom">
+            <a href="/regpage"> Create Account </a>
+            <button type="submit" class="btn btn-success" value="Login">Login</button>
+        </div>
+        
+        </form>
+
+
+    </div>
+
+
+
+</div><!--MAIN-->
+
+</body>
+</html>
