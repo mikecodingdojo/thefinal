@@ -17,7 +17,7 @@ urlpatterns = [
     path('linklogin', views.linklogin),
     path('regpage', views.regpage),
     path('user_profile/<int:id>/updated', views.profile, name='user'),
-    path('images',views.images  ),
+    path('add-images',views.add_images),
     
     
 ]

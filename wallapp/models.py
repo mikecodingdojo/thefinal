@@ -31,6 +31,9 @@ class User(models.Model):
     email = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
     objects = UserManager()
+    # created_at = models.DateField(auto_now=True)
+    # updated_at = models.DateField(auto_now_add=True)
+    
 
 class Wall_Message(models.Model):
     message = models.CharField(max_length=255)
@@ -38,13 +41,18 @@ class Wall_Message(models.Model):
     header_image = models.ImageField(null=True, blank=True, upload_to="images/")
     poster = models.ForeignKey(User, related_name='user_messages', on_delete=models.CASCADE)
     user_likes = models.ManyToManyField(User, related_name='liked_posts')
+    # created_at = models.DateField(auto_now=True)
+    # updated_at = models.DateField(auto_now_add=True)
 
 class Comment(models.Model):
     comment = models.CharField(max_length=255)
     poster = models.ForeignKey(User, related_name='user_comments', on_delete=models.CASCADE)
     wall_message = models.ForeignKey(Wall_Message, related_name="post_comments", on_delete=models.CASCADE)
+    # created_at = models.DateField(auto_now=True)
+    # updated_at = models.DateField(auto_now_add=True)
 
-class Document(models.Model):
-    description = models.CharField(max_length=255, blank=True)
-    document = models.FileField(upload_to='documents/')
-    uploaded_at = models.DateTimeField(auto_now_add=True)
+class Upload(models.Model):
+    file = models.FileField(upload_to="user_images")
+    created_at = models.DateField(auto_now=True)
+    updated_at = models.DateField(auto_now_add=True)
+    

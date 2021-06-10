@@ -2,12 +2,15 @@ from django.shortcuts import render, redirect
 from .models import * 
 from django.contrib import messages
 from django.conf import settings
-from django.core.files.storage import FileSystemStorage
+
 
 
 
 def index(request):
-    return render(request, 'index.html')
+    images = Upload.objects.all()
+    context = {'images':images
+    }
+    return render(request, 'index.html', context)
 
 def profile(request, id):
     context = {
@@ -103,15 +106,13 @@ def linklogin(request):
 def regpage(request):
     return render(request, 'register.html')
 
-def images(request):
-    if request.method == 'POST' and request.FILES['myfile']:
-        myfile = request.FILES['myfile']
-        fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
-        uploaded_file_url = fs.url(filename)
-        context = {'uploaded_file_url':uploaded_file_url}
-        return render(request,'profile.html', context )
+def add_images(request):
+    if request.method == 'POST':
+        new_file = Upload(file=request.FILES['image'])
+        new_file.save()
     return redirect("/")
+
+        
 
 
 

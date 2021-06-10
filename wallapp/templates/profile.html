@@ -37,9 +37,9 @@
         <!--Adding files-->
             <div class="form-group">
 
-                <form action="/images" method="POST" enctype="multipart/form-data">
+                <form action="/add-images" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <input type="file" name='myfile'>
+                    <input type="file" name='image'>
                     <button class="btn btn-secondary">Post</button>
                 </form>
             </div>
@@ -58,9 +58,9 @@
         
 
             
-            {% for uploaded_file_urls in uploaded_file_url %}
+            {% for image in images %}
 
-            <img src="{{ uploaded_file_urls }}" alt="">
+            <img src="{{ image.file.url }}" alt="">
                 
             {% endfor %}
                 
