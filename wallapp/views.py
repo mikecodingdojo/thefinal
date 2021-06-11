@@ -7,14 +7,13 @@ from django.conf import settings
 
 
 def index(request):
-    images = Upload.objects.all()
-    context = {'images':images
-    }
-    return render(request, 'index.html', context)
+        
+    return render(request, 'index.html')
 
 def profile(request, id):
     context = {
             'user': User.objects.get(id=id)
+
         }
     return render(request, 'profile.html', context)
 
@@ -107,12 +106,12 @@ def regpage(request):
     return render(request, 'register.html')
 
 def add_images(request):
-    if request.method == 'POST':
-        new_file = Upload(file=request.FILES['image'])
+        get_user_id = User.objects.all()
+        new_file = Upload(file=request.FILES['image'], user=get_user_id)
         new_file.save()
-    return redirect("/")
+        return redirect("/")
 
-        
+
 
 
 

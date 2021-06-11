@@ -39,11 +39,12 @@ object {
     background-color: rgb(245, 219, 185);
     padding-bottom: 10px;
     margin: 0 auto;
-    
-    
+    border-radius: 10px;
+    margin-top: 10px;
 }
 .sp{
     padding-left: 300px;
+    height: 800px;
 
 }
 .thewall{
@@ -130,7 +131,7 @@ object {
     display: flex;
     flex-wrap: wrap;
     
-    width: 200px;
+    width: 300px;
 }
 
 .loginwall{
@@ -145,4 +146,22 @@ object {
     margin-left: 50px;
 }
 
+.space{
+    margin-left: 10px;
+}
 
+.reg{
+    width: 300px;
+}
+.log{
+    width: 300px;
+}
+
+.imageload{
+    height: 400px;
+    width: 800px;
+    border: 2px solid black;
+    overflow-y: scroll;
+    background-color: rgb(252, 247, 240);
+    border-radius: 10px;
+}

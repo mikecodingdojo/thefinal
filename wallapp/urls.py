@@ -20,4 +20,5 @@ urlpatterns = [
     path('add-images',views.add_images),
     
     
+    
 ]

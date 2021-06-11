@@ -10,7 +10,7 @@
 
 </head>
 <body>
-    <div class="container">
+    <div class="container reg">
     
     {% if messages %}
     <div class="container">
@@ -25,8 +25,7 @@
 </div>
     {% endif %}
 
-    <div class="row">
-        <div class="col">
+    
             <h1 class="loginwall">Register</h1>
 
                 <form action="/register" method="POST" class="loginwall">
@@ -55,12 +54,10 @@
                     <div class="regindiv">
                         
                     <button type="submit" class= "btn btn-primary" value="Create User"> Create User </button>
-                    <a href="/linklogin"> Login</a>
+                    <a class="space" href="/linklogin"> Login</a>
                 </div>
                 </form><!--Main reg-->
-            </div>
-
-        </div>
+            
     
 </body>
 </html>

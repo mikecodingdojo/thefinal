@@ -53,6 +53,7 @@ class Comment(models.Model):
 
 class Upload(models.Model):
     file = models.FileField(upload_to="user_images")
-    created_at = models.DateField(auto_now=True)
-    updated_at = models.DateField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, default=None, related_name="upload")
     

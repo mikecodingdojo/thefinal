@@ -13,7 +13,7 @@
     <div class="container sp">
         
         
-        <ul class="nav">
+        <ul class="nav justify-content-end">
             <li class="nav-item">
                 <a class="nav-link active" href="/success">Main Feed </a>
             </li>
@@ -22,18 +22,14 @@
                 <a class="nav-link active" href="/logout">Logout </a>
 
             </li>
-                <form action="/search" method="POST">
-                    {% csrf_token %}
-                    <input type="text" class="form-control" placeholder="Search...">
                 
-                </form>
             
             
             </ul>
-
+            <div class="row">
         <h1>Hello {{user.first_name}} {{user.last_name}}</h1> 
 
-
+                <div class="col">
         <!--Adding files-->
             <div class="form-group">
 
@@ -60,23 +56,29 @@
             
             {% for image in images %}
 
-            <img src="{{ image.file.url }}" alt="">
+            <img src="{{ user.upload.file.url }}" alt="">
+            
                 
             {% endfor %}
-                
-        
+            <div class="imageload">
+                <p>Images load here</p>
 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                
         Edit User Form:
-        <form action="/edit/{{user.id}}" method=POST>
+        <form action="/edit/{{user.id}}" method="POST" class="loweredit">
             {% csrf_token %}
             First Name: <input class="form-control-sm type="text" name='first_name' value={{user.first_name}}>
             Last Name: <input class="form-control-smtype="text" name='last_name' value={{user.last_name}}>
             Email: <input class="form-control-sm type="text" name='email' value={{user.email}}>
             <input class="btn btn-primary" type="submit">
         {%endif%}
-
-
-
+    </div>
+    </div>
+    </div>
     </div><!--Main Container-->
     
 </body>
